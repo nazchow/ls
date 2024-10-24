@@ -25,3 +25,25 @@ const char* type(mode_t mode) {
         default: return "UNKNOWN";
     }
 }
+// filtering out non printable or non ascii characters
+void get_file_preview(const char* filepath, char* preview) {
+    int fd = open(filepath, O_RDONLY);
+    if (fd == -1) {
+        perror("open");
+        strcpy(preview, "");
+        return;
+    }
+    char buffer[17]; // storing in buffer
+
+
+
+}
+
+int main(int argc, char *argv[]) {
+    char dirpath[PATH_MAX];
+    char filepath[PATH_MAX];
+
+    DIR *dir;
+    struct dirent *dirent;
+    struct stat filestat;
+}
